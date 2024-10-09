@@ -14,18 +14,36 @@ public class EnigmeDuNombreParfait {
 		
 		Scanner myObj = new Scanner(System.in);
 		int nombre = 0;
-		int listeDiviseurs = 0;
+
+		int sommeDiviseurs = 0;
 		
 		System.out.println("Entrez un nombre ");
 		nombre = myObj.nextInt();
 		
-		System.out.println("Le nombre est divisible par : ");
+		int listeDiviseurs[] = new int[nombre];
+		
+		System.out.print(nombre + " est divisible par : ");
 	    for (int i = 1; i < nombre; ++i) {
 	    	if (nombre% i == 0) {
-	    	System.out.println(i);
+	    		System.out.print(i + " ");
+		    	sommeDiviseurs += i;
+		    	listeDiviseurs[i] = i;
 	    	}
 	     } 
 		
+	    System.out.println("");
+	    System.out.println("");
+	    
+	    if (sommeDiviseurs == nombre) {
+	    	System.out.print(nombre + " est parfait sa liste de diviseur est ");
+		    for (int i = 1; i < listeDiviseurs.length; ++i) {
+		    	if (listeDiviseurs[i] != 0) {
+			    	System.out.print(listeDiviseurs[i] + " ");
+		    	}
+		    } 
+	    }else {
+	    	System.out.println(nombre + " n'est pas parfait car la somme des diviseurs est "  + sommeDiviseurs);
+	    }
 	}
 
 }
